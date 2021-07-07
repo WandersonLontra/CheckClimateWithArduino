@@ -9,6 +9,7 @@
 * ✔Node.JS
 * ✔HTML
 * ✔CSS
+* ✔[NunJucks](https://mozilla.github.io/nunjucks/)
 * ✔JavaScript
 * ✔PostgreSQL
 * ✔PM2
