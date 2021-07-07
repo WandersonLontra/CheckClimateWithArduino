@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    height: 100%;
+    background-color: #232323;
+    font-family: 'Roboto', sans-serif;
+}
+
+/**************************CONFIG-GERAIS****************************/
+
+.wallpaper{
+    width: 100%;
+    min-height: 70vh;
+    background-image: url('../assets/wallpaper.jpg');
+    background-position: center;
+    translate: ;
+}
+
+.container{
+    margin: 0 auto;
+    width: 100%;
+    max-width: 900px;
+    padding: 32px 3%;
+}
+
+/**************************END-CONFIG-GERAIS****************************/
+
+/**************************CARDS-TEMPERATURE-HUMIDITY****************************/
+
+.cards{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+.card{
+    height: 320px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.568);
+    box-shadow: 0px 0px 38px -10px rgb(228, 228, 228);
+    border-radius: 16px 40px 15px;
+    border: 5px solid rgba(0, 0, 0, 0);
+    position: relative;
+    transition: 400ms linear;
+    font-size: 152px;
+    font-weight: 900;
+    color: #fff;
+}
+
+.card:hover{
+    border: 5px solid #CE2957;
+    bottom: 4px;
+}
+
+.card:last-child:hover{
+    border: 5px solid #71e4de;
+}
+
+.card > span{
+    font-size: 48px;
+    position: absolute;
+    top: 16px; right: 16px;
+}
+
+.card > img{
+    width: 48px;
+    position: absolute;
+    bottom: 16px; right: 16px;
+}
+
+/**************************END - CARDS-TEMPERATURE-HUMIDITY****************************/
+
+/**************************MODAL ALERT****************************/
+
+.modal{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.671);
+    position: fixed;
+    top: 0;
+    z-index: 999;
+}
+
+.modal-hide{
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal .alert{
+    width: 75%;
+    height: 75%;
+    padding: 5px;
+    margin: 15vh auto;
+    position: relative;
+    background-color: rgb(235, 66, 66);
+    box-shadow: 0 0 8px #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal .alert h1{
+    font-weight: bold;
+    color: azure;
+    font-size: 5em;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.close-modal i{
+    font-size: 50px;
+    position: absolute;
+    top: 16px; right: 16px;
+    color: white;
+    cursor: pointer;
+}
+
+/**************************END-MODAL ALERT****************************/
+
+
+
+
+@media (max-width: 962px){
+    .card{
+        font-size: 132px;
+    }
+}
+@media (max-width: 768px){
+    .card{
+        font-size: 104px;
+        height: 280px;
+    }
+    .modal .alert h1{
+        font-size: 3em;
+    }
+}
+@media (max-width: 500px){
+    .cards{
+        grid-template-columns: none;
+        grid-template-rows: 1fr 1fr;
+        width: 100%;
+    }
+    .card{
+        font-size: 80px;
+        height: 220px;
+    }
+    .card > span{
+        font-size: 32px;
+        align-self: flex-start;
+    }
+    .modal .alert h1{
+        font-size: 2em;
+    }
+}

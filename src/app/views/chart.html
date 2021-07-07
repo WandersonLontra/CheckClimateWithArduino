@@ -1,0 +1,98 @@
+<script src="https://code.highcharts.com/stock/highstock.js"></script>
+<script src="https://code.highcharts.com/stock/modules/data.js"></script>
+<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/stock/modules/export-data.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.13/moment-timezone-with-data-2012-2022.min.js"></script>
+
+
+<div id="chart_dom"></>
+
+<script>
+    Highcharts.getJSON('http://10.121.12.11:80/temperature', function (data) {
+    
+    // Create the chart
+        Highcharts.stockChart('chart_dom', {
+            chart: {
+                events: {
+                    load: function () {
+                        var lastPoint = data[data.length - 1]                        
+                        var series = this.series[0];
+
+                        setInterval(() => { 
+                            Highcharts.getJSON('http://10.121.12.11:80/temperature', function (newData) {
+                                var newPoint = newData[newData.length -1]
+                                if (newPoint !== lastPoint) {
+                                    series.addPoint([newPoint[0],newPoint[1]], true, true)
+
+                                    lastPoint = newPoint
+                                }
+                            })
+                        },2000)
+                        
+                    }
+                }
+            },
+            rangeSelector: {
+                buttons: [{
+                    type: 'month',
+                    count: 1,
+                    text: '1M',
+                    title: 'Visualizar 1 mês'
+                }, {
+                    type: 'month',
+                    count: 3,
+                    text: '3M',
+                    title: 'Visualizar 3 meses'
+                }, {
+                    type: 'month',
+                    count: 6,
+                    text: '6M',
+                    title: 'Visualizar 6 meses'
+                }, {
+                    type: 'ytd',
+                    text: 'ANO',
+                    title: 'Ver o ano até a data'
+                }, {
+                    type: 'year',
+                    count: 1,
+                    text: '1A',
+                    title: 'Visualizar 1 ano'
+                }, {
+                    type: 'all',
+                    text: 'ALL',
+                    title: 'Visualizar tudo'
+                }],
+            selected: 0
+            },
+            title: {
+                text: 'HISTÓRICO DE TEMPERATURA DO DATACENTER DA PRF'
+            },
+            time: {
+                timezone: 'America/Bahia'
+            },
+            series: [{
+                name: 'TEMPERATURA',
+                data: data,
+                tooltip: {
+                    valueDecimals: 2
+                }
+            }]
+        });
+        Highcharts.setOptions({
+            lang: {
+                months: [
+                    'Janeiro', 'Fevereiro', 'Março', 'Abril',
+                    'Maio', 'Junho', 'Julho', 'Agosto',
+                    'Setembro', 'Outubro', 'Novembro', 'Dezembro'
+                ],
+                weekdays: [
+                    'Domingo', 'Segunda', 'Terça', 'Quarta',
+                    'Quinta', 'Sexta', 'Sabado'
+                ]
+            }
+        });
+    });
+
+</script>

@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block style %}
+    <link rel="stylesheet" href="/styles/dark_unica.css">
+{% endblock style %}
+
+{% block content %}
+    
+    <div class="wallpaper">
+        <div class="container">
+            <section class="cards">
+                <div class="card">
+                    <i id="temperature"></i>
+                                       
+                    <span>°C</span>
+                    <img src="/assets/temp_sensor.png" alt="imagem do sensor">
+                </div><!--card-->
+                                
+                <div class="card">
+                    <i id="humidity"></i>
+                    <span>%</span>
+                    <img src="/assets/humid_sensor.png" alt="imagem do sensor">
+                </div><!--card-->
+            </section><!--cards-->
+        </div><!--container-->
+    </div><!--wallpaper-->
+
+    <div class="modal modal-hide">
+        <a class="close-modal">
+            <i class="material-icons" title="fechar">close</i>
+        </a>
+
+        <div class="alert">
+            <h1>A temperatura está muito acima do ideal</h1>
+        </div><!--alert-->
+    </div><!--modal-->
+    
+    
+    <script src="/scripts/main.js"></script>
+
+    {% include 'chart.html' %}
+{% endblock content %}
+
