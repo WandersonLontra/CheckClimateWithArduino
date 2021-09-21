@@ -6,7 +6,7 @@
 
 {% block content %}
     
-    <div class="wallpaper">
+    <div id="particles-js"></div>
         <div class="container">
             <section class="cards">
                 <div class="card">
@@ -22,8 +22,9 @@
                     <img src="/assets/humid_sensor.png" alt="imagem do sensor">
                 </div><!--card-->
             </section><!--cards-->
+            {% include 'chart.html' %}
         </div><!--container-->
-    </div><!--wallpaper-->
+   
 
     <div class="modal modal-hide">
         <a class="close-modal">
@@ -36,8 +37,8 @@
     </div><!--modal-->
     
     
+    <script src="/scripts/particles.min.js"></script>
     <script src="/scripts/main.js"></script>
 
-    {% include 'chart.html' %}
 {% endblock content %}
 

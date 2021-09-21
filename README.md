@@ -14,10 +14,16 @@
 * PM2
 * [Highcharts](https://www.highcharts.com)
 * Arduino
+* [ParticleJS](https://vincentgarreau.com/particles.js/)
 
 # ABOUT
 
 The Project consists of measuring the temperature and humidity in a datacenter environment, and also giving a visual alarm when the temperature exceeds 25°C. It is useful to observe the environment's climate as a form to protect the servers acting quickly.
+
+
+<p align="center">
+    <img src="/PRINTS/alarm.png"/>
+</p>
 
 - The system stores the temperature and humidity in the database every 30 minutes
 - All the temperature storage are given as a JSON in one endpoint who is fetched by the Highchart's framework

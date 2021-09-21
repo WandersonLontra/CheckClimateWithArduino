@@ -1,9 +1,9 @@
 module.exports = {
     date: function(timeStamp){
-        const birthDay = new Date(timeStamp)
+        const setDate = new Date(timeStamp)
 
-        const hour = birthDay.getHours(),
-        minutes = birthDay.getMinutes()
+        const hour = setDate.getHours(),
+        minutes = setDate.getMinutes()
 
         return {
             hour,

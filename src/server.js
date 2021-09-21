@@ -11,8 +11,6 @@ server.use(express.static('public'))
 
 server.use(routes)
 
-require('dotenv/config');
-
 server.set("view engine","html")
 
 nunjucks.configure("src/app/views", {
@@ -22,9 +20,9 @@ nunjucks.configure("src/app/views", {
 })
 
 
-//SETANDO O SERVIDOR NA PORTA 5000
+//SETANDO O SERVIDOR NA PORTA 80
 server.listen(80, function(){
     console.log('Server is working')
 })
 
-//FIM  CONFIG DE DO SERVER NA PORTA 5000
+//FIM  CONFIG DE DO SERVER NA PORTA 80
