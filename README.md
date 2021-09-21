@@ -1,4 +1,4 @@
-# 🥶 CHECK TEMPERATURE AND HUMIDITY 😰
+# 🥶❄ CHECK TEMPERATURE AND HUMIDITY 😰🔥
 
 <p align="center">
     <img src="/PRINTS/example.png"/>
@@ -16,7 +16,7 @@
 * Arduino
 * [ParticleJS](https://vincentgarreau.com/particles.js/)
 
-# ABOUT
+# 🚩ABOUT
 
 The Project consists of measuring the temperature and humidity in a datacenter environment, and also giving a visual alarm when the temperature exceeds 25°C. It is useful to observe the environment's climate as a form to protect the servers acting quickly.
 
